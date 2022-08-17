@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-git clone --depth=1 https://github.com/OWASP/crAPI.git
-cd crAPI
-bash deploy/docker/build-all.sh
-docker-compose -f deploy/docker/docker-compose.yml --compatibility up -d
+curl -o docker-compose.yml https://raw.githubusercontent.com/OWASP/crAPI/main/deploy/docker/docker-compose.yml
+docker-compose pull
+docker-compose -f docker-compose.yml --compatibility up -d
 
-curl http://localhost:8888
