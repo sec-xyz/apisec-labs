@@ -35,6 +35,9 @@ sudo apt-get -y update
 # Install the latest version of Docker Engine, containerd, and Docker Compose
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
+# Add current user to docker group
+sudo usermod -aG docker $USER
+
 # Verify that Docker CE is installed correctly by running the hello-world image.
 docker run hello-world | grep "Hello from Docker!"
 
